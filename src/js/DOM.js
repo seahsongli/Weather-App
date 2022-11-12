@@ -53,6 +53,7 @@ function setForecastedDays(){
 
 async function getForecastedWeather(city){
     const listOfForecastedDetails = await APIfxn.fetchForecastWeatherData(city);
+    console.log(listOfForecastedDetails);
     let listOfWeather = [];
     for (let key in listOfForecastedDetails){
         listOfWeather.push(listOfForecastedDetails[key].weather[0].main);
@@ -77,9 +78,29 @@ async function setForecastedWeather(city){
     }
 }
 
+async function getForecastedTemperature(city){
+    const listOfForecastedDetails = await APIfxn.fetchForecastWeatherData(city);
+    let listOfTemperatures = [];
+    console.log(listOfForecastedDetails);
+    for (let key in listOfForecastedDetails){
+        
+        listOfTemperatures.push(listOfForecastedDetails[key].main.temp);
+    }
+    return listOfTemperatures;
+}
+
+async function setForecastedTemperature(city){
+    let listOfTemperatures = await getForecastedTemperature(city);
+    console.log(listOfTemperatures);
+    let temp = Array.from(document.querySelectorAll("#temp"));
+    for (let i=0;i<temp.length;i++){
+        temp[i].textContent = listOfTemperatures[i];
+    }
+}
 function render(city = "singapore"){
     setForecastedDays();
     setForecastedWeather(city);
+    setForecastedTemperature(city);
 }
 
 render();

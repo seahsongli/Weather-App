@@ -24,6 +24,7 @@ export async function fetchForecastWeatherData(city = "Singapore") {
 
 
 
+
 fetchCurrentWeatherData();
 fetchForecastWeatherData();
 
