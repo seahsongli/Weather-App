@@ -8,62 +8,63 @@
     <script src = "main.js" defer></script>
 </head>
 <body>
-    <img src="#" class="background">
     <div class="container">
+
         <div class = "header">
-            <div> Hi Weather</div>
+            <div class = "title"> Hi Weather</div>
             <div class = "header-items">
-                <img src="../src/icons/location-sign-svgrepo-com.svg" alt="" id = "locationLogo">
+                <img src="../src/icons/icons8-location-64.png" alt="" id = "locationLogo">
                 <div id = "currentLocation">Singapore</div>
                 <div id = "currentTime">Time</div>
-                <div>
+                <div id = "form">
                     <form action="" class = "form">
                         <input type="text" placeholder="Search.." name="search" class="searchLocation">
                         <button>Search</button>
                       </form>
                       <div class ="error" style = "display:none">Please enter a valid location!</div>
                 </div>
-              
             </div>
         </div>
+
         <div class="content">
-            <div class="details">
-                <div class = "weather-details"></div>
-                <div class = "weather-details"></div>
-            </div>
-            
             <div class = "weather-content">
                 <div class="current">
-                    <div id="currentDay"></div>
-                    <img src="../src/icons/cloud-drizzle.svg" alt="" class = "weatherIcon">
-                    <div id="temp"></div>
+                    <div class="currentContent">
+                        <div id="temp" class = "currentTemperature"></div>
+                        <div id="day"></div>
+                    </div>
+                    <img src="../src/icons/cloud-drizzle.svg" alt="" class = "weatherIcon" id ="currentWeatherIcon">
                 </div>
 
-                <div class="forecast">
-                    <div id="day"></div>
-                    <img src="../src/icons/cloud-drizzle.svg" alt="" class = "weatherIcon">
-                    <div id="temp"></div>
+                <div class="forecast-content">
+                    <div class="forecast">
+                        <div id="day"></div>
+                        <img src="../src/icons/cloud-drizzle.svg" alt="" class = "weatherIcon">
+                        <div id="temp"></div>
+                    </div>
+                    <div class="forecast">
+                        <div id="day"></div>
+                        <img src="../src/icons/cloud-drizzle.svg" alt="" class = "weatherIcon">
+                        <div id="temp"></div>
+                    </div>
+                    <div class="forecast">
+                        <div id="day"></div>
+                        <img src="../src/icons/cloud-drizzle.svg" alt="" class = "weatherIcon">
+                        <div id="temp"></div>
+                    </div>
+                    <div class="forecast">
+                        <div id="day"></div>
+                        <img src="../src/icons/cloud-drizzle.svg" alt="" class = "weatherIcon">
+                        <div id="temp"></div>
+                    </div>
+                    <div class="forecast">
+                        <div id="day"></div>
+                        <img src="../src/icons/cloud-drizzle.svg" alt="" class = "weatherIcon">
+                        <div id="temp"></div>
+                    </div>
                 </div>
-                <div class="forecast">
-                    <div id="day"></div>
-                    <img src="../src/icons/cloud-drizzle.svg" alt="" class = "weatherIcon">
-                    <div id="temp"></div>
-                </div>
-                <div class="forecast">
-                    <div id="day"></div>
-                    <img src="../src/icons/cloud-drizzle.svg" alt="" class = "weatherIcon">
-                    <div id="temp"></div>
-                </div>
-                <div class="forecast">
-                    <div id="day"></div>
-                    <img src="../src/icons/cloud-drizzle.svg" alt="" class = "weatherIcon">
-                    <div id="temp"></div>
-                </div>
-                <div class="forecast">
-                    <div id="day"></div>
-                    <img src="../src/icons/cloud-drizzle.svg" alt="" class = "weatherIcon">
-                    <div id="temp"></div>
-                </div>
+
+                
             </div>
         </div>
     </div>
