@@ -1,23 +1,36 @@
 import * as APIfxn from "./API.js";
 function updateDateTime(timezone = "Singapore"){
     const currentDateTime = new Date()
-    //     hour:"numeric",
-    //     minute:"numeric"});
     let timeDisplayed = document.querySelector("#currentTime");
     timeDisplayed.innerHTML= currentDateTime.toLocaleString("en-US", {timeZone: timezone}) 
-    // { hour12:true,;
+   
     
 }
 setInterval(updateDateTime, 1000);
 
+function handleError(err){
+    console.log("woops!")
+    console.log(err);
+}
+
+
 let form = document.querySelector("form");
-form.addEventListener("submit", (e)=>{
+form.addEventListener("submit",async(e)=>{
     e.preventDefault();
-    let searchLocation = document.querySelector(".searchLocation");
     let currentLocation = document.querySelector("#currentLocation");
-    render(searchLocation.value);
-    currentLocation.textContent = searchLocation.value;
-    searchLocation.value = "";
+    let searchLocation = document.querySelector(".searchLocation");
+    let error = document.querySelector(".error");
+    const response = await APIfxn.fetchForecastWeatherData(searchLocation.value);
+    if (response !== undefined){
+        error.style.display = "none";
+        render(searchLocation.value);
+        currentLocation.textContent = searchLocation.value;
+    }
+    else {
+        error.style.display = "flex";
+        throw new Error("Unable to fetch content");
+    }
+   
 });
 
 
@@ -94,16 +107,17 @@ async function setForecastedTemperature(city){
     console.log(listOfTemperatures);
     let temp = Array.from(document.querySelectorAll("#temp"));
     for (let i=0;i<temp.length;i++){
-        temp[i].textContent = listOfTemperatures[i];
+        temp[i].textContent = Math.round(listOfTemperatures[i]*10)/10;
     }
 }
+
 function render(city = "singapore"){
     setForecastedDays();
     setForecastedWeather(city);
     setForecastedTemperature(city);
 }
-
 render();
+
 
 
 
