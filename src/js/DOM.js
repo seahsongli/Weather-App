@@ -3,16 +3,8 @@ function updateDateTime(timezone = "Singapore"){
     const currentDateTime = new Date()
     let timeDisplayed = document.querySelector("#currentTime");
     timeDisplayed.innerHTML= currentDateTime.toLocaleString("en-US", {timeZone: timezone}) 
-   
-    
 }
 setInterval(updateDateTime, 1000);
-
-function handleError(err){
-    console.log("woops!")
-    console.log(err);
-}
-
 
 let form = document.querySelector("form");
 form.addEventListener("submit",async(e)=>{
@@ -32,19 +24,6 @@ form.addEventListener("submit",async(e)=>{
     }
    
 });
-
-
-// async function fetchBackgroundImage(city = "Singapore Image"){
-//     let img = document.querySelector(".background");
-//     let response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=mnSo90HmdDUri6hCiCmL0EhSInAaCUbk&s=${city}`, {mode: 'cors'})
-//     let details = await response.json();
-//     img.src = details.data.images.original.url;
-//   }
-
-  
-  
-  // fetchBackgroundImage();
-
 
 function getForecastedDays(date){
     const daysInWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -107,7 +86,7 @@ async function setForecastedTemperature(city){
     console.log(listOfTemperatures);
     let temp = Array.from(document.querySelectorAll("#temp"));
     for (let i=0;i<temp.length;i++){
-        temp[i].textContent = Math.round(listOfTemperatures[i]*10)/10;
+        temp[i].textContent = Math.round(listOfTemperatures[i]*10)/10 + "°";
     }
 }
 

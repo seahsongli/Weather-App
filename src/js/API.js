@@ -1,14 +1,3 @@
-async function fetchCurrentWeatherData(city = "Singapore") {
-    let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=0e5e41d3a0b1d9cfee583d3275dd1049&units=metric`, { mode: 'cors' });
-    console.log(response);
-    let data = await response.json();
-    let weather = (data.weather[0].main);
-    let temperature = data.main.temp;
-    // console.log(weather)
-    // console.log(temperature)
-}
-
-
 export async function fetchForecastWeatherData(city = "Singapore") {
     try{
         let listOfForecastedDetails = [];
@@ -23,10 +12,6 @@ export async function fetchForecastWeatherData(city = "Singapore") {
     }
 }
 
-
-
-
-// fetchCurrentWeatherData();
 fetchForecastWeatherData();
 
 
