@@ -60,13 +60,13 @@ async function setForecastedWeather(city){
     const weatherIcons = Array.from(document.querySelectorAll(".weatherIcon"));
     for (let i=0;i<weatherIcons.length;i++){
         if (listOfWeather[i] == "Rain"){
-            weatherIcons[i].src = "../dist/icons/cloud-lightning.svg";
+            weatherIcons[i].src = "../src/icons/cloud-lightning.svg";
         }
         else if (listOfWeather[i] == "Clouds"){
-            weatherIcons[i].src = "../dist/icons/cloud.svg";
+            weatherIcons[i].src = "../src/icons/cloud.svg";
         }
         else if (listOfWeather[i] == "Sun"){
-            weatherIcons[i].src = "../dist/icons/sun.svg";
+            weatherIcons[i].src = "../src/icons/sun.svg";
         }
     }
 }
